@@ -71,7 +71,7 @@ struct AddEditView: View {
                     HStack {
                         Text("NetID").frame(width: 90)
                         TextField("", text: $netID)
-                            .disabled(true)
+                            //.disabled(true)
                     }
                     HStack {
                         Text("Full Name").frame(width: 90)

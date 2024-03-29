@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct Login: View {
     @Environment(ModelData.self) var modelData
@@ -30,14 +31,17 @@ struct Login: View {
                 Text("Login")
                     .font(.custom("Helvetica Neue", size: 40))
                     .bold()
-                
-                Spacer()
+                LoginLottie(loopMode: .loop)
+                    .scaleEffect(0.3)
+                    .frame(width: 300, height: 180)
+                    .padding(.bottom, 20)
+                //Spacer()
 
                 TextField("NetID",text: $username)
                     .padding(10)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.blue, lineWidth: 2)
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color(red: 0.6, green: 0.7, blue: 0.2), lineWidth: 2)
                     }
                     .frame(height: 40)
                     .frame(width: 300)
@@ -53,15 +57,15 @@ struct Login: View {
                     }
                     .padding(10)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.red, lineWidth: 2)
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color(red: 0.6, green: 0.7, blue: 0.2), lineWidth: 2)
                     }
 
                     Button {
                         showPassword.toggle()
                     } label: {
                         Image(systemName: showPassword ? "eye.slash" : "eye")
-                            .foregroundColor(.red) // how to change image based in a State variable
+                            .foregroundColor(Color(red: 0.6, green: 0.7, blue: 0.2))
                     }
 
                 }
@@ -87,13 +91,13 @@ struct Login: View {
                         .foregroundColor(.white)
                 }
                     .frame(height: 50)
-                    .frame(width: 300)
+                    .frame(width: 250)
                     .background(
                         isSignInButtonDisabled ?
                         LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
-                        LinearGradient(colors: [.blue, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+                        LinearGradient(colors: [Color(red: 0.6, green: 0.7, blue: 0.2)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
-                    .cornerRadius(20)
+                    .cornerRadius(30)
                     .disabled(isSignInButtonDisabled) // how to disable while some condition is applied
                     .padding()
                             
