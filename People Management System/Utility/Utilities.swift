@@ -78,6 +78,17 @@ func stringFromImage(_ imagePic: UIImage) -> String {
     return picBase64
 }
 
+func constructFilterText(filter: [String: String]) -> String {
+    let keyValueStrings = filter.map { key, value in
+        "\(key)=\(value)"
+    }
+
+    let result = keyValueStrings.joined(separator: ", ")
+
+    print(result)
+    return result
+}
+
 func filterDukePerson(all: [DukePerson], params: [String: String]) -> [DukePerson] {
     var people = all
     

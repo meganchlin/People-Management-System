@@ -13,11 +13,12 @@ struct AddEditView: View {
     @Environment(ModelData.self) var modelData
     @Binding var dukePerson: DukePerson
     @State var uploadToServer: Bool = false
-    var authStr = {
+    var authStr: String {
         let defaults = UserDefaults.standard
         guard let authStr = defaults.object(forKey: "AuthString") as? String else {
             return ""
         }
+        print("auth in addEditView: ", authStr)
         return authStr
     }
     
@@ -265,8 +266,7 @@ struct AddEditView: View {
             }
             .toolbar {
                 ToolbarItem() {
-                    let auth = authStr().split(separator: ":")
-                    if auth != [] && dukePerson.netID == auth[0] {
+                    if dukePerson.netID == modelData.auth {
                         Toggle(isOn: $uploadToServer) {
                             Image(systemName: uploadToServer ? "square.and.arrow.up.fill" : "square.and.arrow.up")
                             //.font(.system(size: 50))
@@ -345,11 +345,11 @@ struct AddEditView: View {
     }
     
     private func uploadSelf(user: DukePerson){
-        let auth = authStr().split(separator: ":")
+        let auth = authStr.split(separator: ":")
         
         let urlStr = "" + auth[0]
             
-        _ = ModelData().upload(website: urlStr, auth: authStr(), person: user, update: true)
+        _ = ModelData().upload(website: urlStr, auth: authStr, person: user, update: true)
     }
 
 }

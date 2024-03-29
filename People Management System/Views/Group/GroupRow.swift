@@ -9,12 +9,13 @@ import SwiftUI
 
 struct GroupRow: View {
     @Environment(ModelData.self) var modelData
-    var groupName: String
+    @State private var showEditSheet = false
+    @State var groupName: String
     var groupMember: [DukePerson]
     
     var body: some View {
         VStack(alignment: .leading) {
-            var groupNamesSet = Set(modelData.DukePeople.map { $0.value.team })
+            let groupNamesSet = Set(modelData.DukePeople.map { $0.value.team })
                 
             if groupNamesSet.contains(groupName) {
                 Text(groupName)
@@ -29,7 +30,7 @@ struct GroupRow: View {
                 
                     .contextMenu {
                         Button(role: .none) {
-                            // edit something
+                            showEditSheet = true
                         } label: {
                             HStack {
                                 Text("Edit")
@@ -60,6 +61,10 @@ struct GroupRow: View {
                 }
             }
             .frame(height: 185)
+        }
+        .sheet(isPresented: $showEditSheet){
+            let filterStr = constructFilterText(filter: modelData.Group[groupName] ?? [:])
+            AddGroupView(groupName: groupName, filterText: filterStr, edit: true)
         }
     }
     

@@ -43,7 +43,7 @@ struct GroupView: View {
         }
         .animation(.default, value: groupedItems)
         .sheet(isPresented: $showAddGroupSheet) {
-            AddGroupView()
+            AddGroupView(groupName: "")
         }
     }
 }

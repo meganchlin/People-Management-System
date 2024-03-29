@@ -11,9 +11,10 @@ struct AddGroupView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Environment(ModelData.self) var modelData
-    @State private var groupName: String = ""
-    @State private var filterText: String = ""
+    @State var groupName: String
+    @State var filterText: String = ""
     @State private var showAlert = false
+    var edit = false
     
     var filteredDukePerson: [DukePerson] {
         
@@ -28,11 +29,20 @@ struct AddGroupView: View {
         NavigationSplitView {
             HStack {
                 Text("Group Name:").frame(width: 140)
-                TextField("", text: $groupName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 220, height: 50)
-                    .autocorrectionDisabled()
-                    .autocapitalization(.none)
+                if edit {
+                    TextField("", text: $groupName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 220, height: 50)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                        .disabled(true)
+                } else {
+                    TextField("", text: $groupName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 220, height: 50)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                }
                 Spacer()
             }
             
@@ -70,21 +80,23 @@ struct AddGroupView: View {
     }
     
     private func saveGroup(){
-        var groupNamesSet = Set(modelData.DukePeople.map { $0.value.team })
-        groupNamesSet.formUnion(modelData.Group.keys)
-        
-        if groupNamesSet.contains(groupName) {
-            showAlert = true
-            print("The group name already exists.")
-        } else {
-            modelData.Group[groupName] = parseParams(filterText)
-            _ = People_Management_System.saveGroup(modelData.Group, str: modelData.auth)
-            presentationMode.wrappedValue.dismiss()
+        if !edit {
+            var groupNamesSet = Set(modelData.DukePeople.map { $0.value.team })
+            groupNamesSet.formUnion(modelData.Group.keys)
+            
+            if groupNamesSet.contains(groupName) {
+                showAlert = true
+                print("The group name already exists.")
+                return
+            }
         }
+        modelData.Group[groupName] = parseParams(filterText)
+        _ = People_Management_System.saveGroup(modelData.Group, str: modelData.auth)
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
 #Preview {
-    AddGroupView()
+    AddGroupView(groupName: "")
         .environment(ModelData())
 }
