@@ -11,7 +11,9 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
+    @State private var isLoggedIn = false
     @State private var selection: Tab = .list
+     
     
     enum Tab {
         case list
@@ -34,7 +36,10 @@ struct ContentView: View {
                     }
                     .tag(Tab.list)
             }
-            //ECE564Login()
+            if !isLoggedIn {
+                Login(isLoggedIn: $isLoggedIn)
+                    .transition(.opacity) // Optional animation for showing/hiding the login view
+            }
         }
     }
 }

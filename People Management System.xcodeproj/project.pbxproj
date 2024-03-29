@@ -31,6 +31,7 @@
 		4407A1E02BB716270047DF93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407A1CD2BB716270047DF93 /* ContentView.swift */; };
 		4407A1E42BB716390047DF93 /* DukePerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407A1E12BB716390047DF93 /* DukePerson.swift */; };
 		4407A1E52BB716390047DF93 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407A1E22BB716390047DF93 /* ModelData.swift */; };
+		44C29D8D2BB7508400514CB3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C29D8C2BB7508400514CB3 /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		4407A1CD2BB716270047DF93 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4407A1E12BB716390047DF93 /* DukePerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DukePerson.swift; sourceTree = "<group>"; };
 		4407A1E22BB716390047DF93 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		44C29D8B2BB7499900514CB3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		44C29D8C2BB7508400514CB3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 		4407A19B2BB7143C0047DF93 = {
 			isa = PBXGroup;
 			children = (
+				44C29D8B2BB7499900514CB3 /* README.md */,
 				4407A1A62BB7143C0047DF93 /* People Management System */,
 				4407A1A52BB7143C0047DF93 /* Products */,
 			);
@@ -170,6 +174,7 @@
 				4407A1C72BB716270047DF93 /* Helper */,
 				4407A1CC2BB716270047DF93 /* Music */,
 				4407A1CD2BB716270047DF93 /* ContentView.swift */,
+				44C29D8C2BB7508400514CB3 /* Login.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				4407A1CF2BB716270047DF93 /* AddEditView.swift in Sources */,
 				4407A1D12BB716270047DF93 /* DukePersonList.swift in Sources */,
 				4407A1D92BB716270047DF93 /* ProgrammingLanguagePicker.swift in Sources */,
+				44C29D8D2BB7508400514CB3 /* Login.swift in Sources */,
 				4407A1D32BB716270047DF93 /* MeView.swift in Sources */,
 				4407A1A82BB7143C0047DF93 /* People_Management_SystemApp.swift in Sources */,
 				4407A1D02BB716270047DF93 /* DukePersonDetail.swift in Sources */,

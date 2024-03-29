@@ -145,8 +145,11 @@ class ModelData {
         
         var result = true
         
-        let url = URL(string: website)
-        var req = URLRequest(url: url!)
+        guard let url = URL(string: website) else {
+            print("url not exists")
+            return false
+        }
+        var req = URLRequest(url: url)
         let loginData = auth.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
 
