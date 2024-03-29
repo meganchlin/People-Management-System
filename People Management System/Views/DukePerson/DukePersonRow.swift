@@ -56,8 +56,8 @@ struct DukePersonRow: View {
     }
     
     private func deletePerson(DUID: Int) {
-        @Bindable var Data = modelData
-        Data.DukePeople[dukePerson.DUID] = nil
+        modelData.DukePeople[dukePerson.DUID] = nil
+        _ = save(modelData.DukePeople.map{$0.value}, str: modelData.auth)
     }
     
 }
@@ -65,6 +65,6 @@ struct DukePersonRow: View {
 #Preview {
     let modelData = ModelData()
     let dukePeople = ModelData().DukePeople
-    return DukePersonRow(dukePerson: dukePeople[829820]!)//, refresh: .constant(false))
+    return DukePersonRow(dukePerson: dukePeople[123456]!)//, refresh: .constant(false))
         .environment(modelData)
 }

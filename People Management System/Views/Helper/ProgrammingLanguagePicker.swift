@@ -235,6 +235,6 @@ private func setInitialValue(for choice: String) -> String {
 #Preview {
     let modelData = ModelData()
     let dukePeople = ModelData().DukePeople
-    return ProgrammingLanguagePicker(dukePerson: .constant(dukePeople[829820]!), selectedLanguages: .constant(""))
+    return ProgrammingLanguagePicker(dukePerson: .constant(dukePeople[123456]!), selectedLanguages: .constant(""))
         .environment(modelData)
 }

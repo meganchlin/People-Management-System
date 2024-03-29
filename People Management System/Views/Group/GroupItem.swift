@@ -26,6 +26,6 @@ struct GroupItem: View {
 }
 
 #Preview {
-    GroupItem(dukePerson: ModelData().DukePeople[829820]!)
+    GroupItem(dukePerson: ModelData().DukePeople[123456]!)
 }
 

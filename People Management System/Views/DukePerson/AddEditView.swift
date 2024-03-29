@@ -357,6 +357,6 @@ struct AddEditView: View {
 #Preview {
     let modelData = ModelData()
     let dukePeople = ModelData().DukePeople
-    return AddEditView(dukePerson: .constant(dukePeople[829820]!))
+    return AddEditView(dukePerson: .constant(dukePeople[123456]!))
         .environment(modelData)
 }

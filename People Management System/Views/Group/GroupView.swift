@@ -12,7 +12,15 @@ struct GroupView: View {
     
     @State private var showAddGroupSheet = false
     
-    @State private var groupedItems: [String: [DukePerson]] = [:]
+    private var groupedItems: [String: [DukePerson]] {
+        var group = Dictionary(grouping: modelData.DukePeople.map{$0.value}, by: { $0.team })
+           
+        let people = modelData.DukePeople.map{$0.value}
+        for groupName in modelData.Group.keys.sorted() {
+            group[groupName] = filterDukePerson(all: people, params: modelData.Group[groupName]!)
+        }
+        return group
+    }
   
     var body: some View {
         NavigationView {
@@ -33,17 +41,9 @@ struct GroupView: View {
                 }
             }
         }
+        .animation(.default, value: groupedItems)
         .sheet(isPresented: $showAddGroupSheet) {
             AddGroupView()
-        }
-        .onAppear {
-            var group = Dictionary(grouping: modelData.DukePeople.map{$0.value}, by: { $0.team })
-               
-            let people = modelData.DukePeople.map{$0.value}
-            for groupName in modelData.Group.keys.sorted() {
-                group[groupName] = filterDukePerson(all: people, params: modelData.Group[groupName]!)
-            }
-            groupedItems = group
         }
     }
 }

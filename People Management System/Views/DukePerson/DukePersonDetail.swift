@@ -54,6 +54,6 @@ struct DukePersonDetail: View {
 
 #Preview {
     let modelData = ModelData()
-    return DukePersonDetail(dukePerson: modelData.DukePeople[829820]!)
+    return DukePersonDetail(dukePerson: modelData.DukePeople[123456]!)
         //.environment(modelData)
 }

@@ -183,5 +183,5 @@ struct content: View {
 
 #Preview {
     let modelData = ModelData()
-    return MeView(dukePerson: modelData.DukePeople[829820]!)
+    return MeView(dukePerson: modelData.DukePeople[123456]!)
 }
