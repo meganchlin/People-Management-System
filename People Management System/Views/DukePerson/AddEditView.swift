@@ -44,7 +44,7 @@ struct AddEditView: View {
     @State private var number: Int = 1
     
     init(dukePerson: Binding<DukePerson>) {
-        print("edit view init --------")
+        //print("edit view init --------")
         _dukePerson = dukePerson
         _netID = State(initialValue: dukePerson.netID.wrappedValue)
         _fName = State(initialValue: dukePerson.fName.wrappedValue)

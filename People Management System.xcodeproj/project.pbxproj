@@ -35,6 +35,7 @@
 		44C29D902BB77B4100514CB3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 44C29D8F2BB77B4100514CB3 /* Lottie */; };
 		44C29D922BB77B8B00514CB3 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 44C29D912BB77B8A00514CB3 /* login.json */; };
 		44C29D942BB77C4D00514CB3 /* LoginLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C29D932BB77C4D00514CB3 /* LoginLottie.swift */; };
+		44C29D992BB7891600514CB3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 44C29D982BB7891600514CB3 /* PopupView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C29D992BB7891600514CB3 /* PopupView in Frameworks */,
 				44C29D902BB77B4100514CB3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +216,7 @@
 			name = "People Management System";
 			packageProductDependencies = (
 				44C29D8F2BB77B4100514CB3 /* Lottie */,
+				44C29D982BB7891600514CB3 /* PopupView */,
 			);
 			productName = "People Management System";
 			productReference = 4407A1A42BB7143C0047DF93 /* People Management System.app */;
@@ -245,6 +248,7 @@
 			mainGroup = 4407A19B2BB7143C0047DF93;
 			packageReferences = (
 				44C29D8E2BB77B4100514CB3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				44C29D972BB7891600514CB3 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 4407A1A52BB7143C0047DF93 /* Products */;
 			projectDirPath = "";
@@ -510,6 +514,14 @@
 				minimumVersion = 4.4.1;
 			};
 		};
+		44C29D972BB7891600514CB3 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +529,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44C29D8E2BB77B4100514CB3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		44C29D982BB7891600514CB3 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C29D972BB7891600514CB3 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

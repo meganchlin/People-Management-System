@@ -35,6 +35,26 @@ let programmingLanguages: [String: String] = [
     "C": "🅒"
 ]
 
+let helpMessage = """
+              General Search: Search for contents in the description
+            
+              Search by Parameters: Specify search criteria using valid parameters
+                Valid Parameters (seperated by ','):
+                  ne – netID
+                  fn – fName
+                  ln – lName
+                  fr – from
+                  ge – gender (Male, Female, Other, Unknown)
+                  ro – role (Professor, TA, Student, Other, Unknown)
+                  ho – hobby
+                  la – languages (up to 3 programming languages, seperated by ';')
+                  mo – moviegenre
+                  pl - plan
+                  pr – program
+                  te - team
+                For example: fn=Megan, ln=lin, ge=Famale
+            """
+
 func parseParams(_ s: String) -> [String: String] {
     var dict: [String: String] = [:]
     let data = s.split(separator: ",")

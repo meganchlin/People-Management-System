@@ -46,13 +46,19 @@ struct Login: View {
                     .frame(height: 40)
                     .frame(width: 300)
                     .padding(.horizontal)
+                    .autocorrectionDisabled()
+                    .autocapitalization(.none)
                            
                 HStack {
                     Group {
                         if showPassword {
                             TextField("Password", text: $password)
+                                .autocorrectionDisabled()
+                                .autocapitalization(.none)
                         } else {
                             SecureField("Password", text: $password)
+                                .autocorrectionDisabled()
+                                .autocapitalization(.none)
                         }
                     }
                     .padding(10)

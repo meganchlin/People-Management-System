@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import PopupView
+
 
 struct DukePersonList: View {
     @Environment(ModelData.self) var modelData
     @State private var searchText: String = ""
     @State private var showAlert = false
     @State private var showStats = false
+    @State private var showHelp = false
     @State private var showDownloadSheet = false
     @State private var showAddEditSheet = false
     //@State private var refresh = false
@@ -79,11 +82,21 @@ struct DukePersonList: View {
 
     var body: some View {
         NavigationSplitView {
-            TextField("Search", text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 350, height: 50)
-                .autocorrectionDisabled()
-                .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+            HStack (spacing: 20) {
+                TextField("Search", text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 300, height: 50)
+                    .autocorrectionDisabled()
+                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                   
+                Button(action: {
+                    showHelp = true
+                }, label: {
+                    Label("", systemImage: "questionmark.bubble")
+                })
+            }
+
+            
 
             List {
                 ForEach(role, id:\.self){ role in
@@ -163,6 +176,14 @@ struct DukePersonList: View {
         }
         .sheet(isPresented: $showAddEditSheet) {
             AddEditView(dukePerson: $editPerson)
+        }
+        .popup(isPresented: $showHelp) {
+            Text(helpMessage)
+                .padding(10)
+                .frame(width: 300, height: 600)
+                .background(Color(red: 0.8, green: 0.8, blue: 0.95))
+                .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                .cornerRadius(30.0)
         }
         .alert(isPresented: $showAlert) {
             if modelData.downloadState {
