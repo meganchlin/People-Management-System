@@ -12,7 +12,7 @@ The People Management System is a comprehensive application designed to manage i
 - **Add/Edit/Delete Group**: Users can create new groups, modify existing groups, or delete groups as required.
 - **Download/Upload Functionality**: Allows users to download their profiles and upload changes (restricted to the login person's own profile).
   * Note: Users are required to set their website's URL manually in the code for this functionality to work.
-- **Login Screen**: Provides a login interface with default credentials (admin/admin). New users can also register using their netID from the database.
+- **Login Screen**: Provides a login interface with default credentials (admin/admin). New users can also log in using their netID if their profiles exist in the database.
 
 ## Personalized View Example
 
