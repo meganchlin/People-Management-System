@@ -5,7 +5,7 @@ The People Management System is a comprehensive application designed to manage i
 ## Features
 
 - **List View**: Displays every person grouped by their role, allowing for easy navigation and organization.
-- **Search Bar**: Enables users to quickly search for specific individuals by various criteria.
+- **Realtime Search Bar**: Enables users to quickly search for specific individuals by various criteria.
 - **Add/Edit/Delete Person**: Users can add new people to the system, edit existing person details, or remove them as needed.
 - **Person Detail View**: Provides detailed information about each individual, including their role, contact details, and any additional information.
 - **Group View**: Lists all groups with their members, facilitating efficient group management.
